@@ -15,13 +15,13 @@ void usage() {
 void check_expiration() {
     struct tm expiration = {0};
     expiration.tm_year = 2024 - 1900; // Year 2024
-    expiration.tm_mon = 20; // September (0-based index, so 20 is September)
-    expiration.tm_mday = 12; // 12th day
+    expiration.tm_mon = 9; // October (0-based index, so 9 is October)
+    expiration.tm_mday = 5; // 5th day
     time_t exp_time = mktime(&expiration);
     time_t current_time = time(NULL);
 
     if (difftime(exp_time, current_time) < 0) {
-        printf("The script has expired and connot be run.");
+        printf("The script has expired and cannot be run.");
         exit(1);
     }
 }
